@@ -1,0 +1,1 @@
+kvieciu tave i pasimatyma
