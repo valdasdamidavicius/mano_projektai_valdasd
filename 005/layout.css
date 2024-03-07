@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+}
+
+.layout {
+    width: 100%;
+}
+
+.bin {
+    width: 100%;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+}
+
+.bin.menu {
+    background-color: gray;
+    height: 100px;
+}
