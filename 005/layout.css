@@ -1,5 +1,6 @@
 :root {
-    --img: 500px;
+    --img: 300px;
+    --img2: 300px;
 }
 
 body {
@@ -19,6 +20,8 @@ body {
 .container {
     width: 100%;
     max-width: 1200px;
+    display: flex;
+    justify-content: center;
 }
 
 .bin.menu {
@@ -80,11 +83,26 @@ svg:hover {
     flex-direction: column;
 }
 
+/* .img-container {
+    border: 1px solid black;
+    padding: 20px;
+    width: 500px;
+    position: relative;
+    margin: 0;
+    height: 333px;
+} */
+
 img {
-    width: var(--img);
+    width: var(--img2);
     height: auto;
     position: absolute;
     transition: all 0.5s;
+}
+
+@media only screen and (min-width: 700px) {
+    img {
+        width: var(--img2);
+    }
 }
 
 .img-container2 {
@@ -92,9 +110,16 @@ img {
     padding: 20px;
     width: var(--img);
     position: relative;
-    margin: 20px;
-    height: 333px;
+    margin: 0;
+    height: 180px;
     overflow: hidden;
+}
+
+@media only screen and (min-width: 700px) {
+    .img-container2 {
+        width: var(--img2);
+        height: 333px;
+    }
 }
 
 .img-container2 img {
@@ -114,8 +139,20 @@ img {
     transition: all 0.5s;
 }
 
+@media only screen and (min-width: 700px) {
+    .img-container2 .img22 {
+        left: calc(var(--img2) + 40px);
+    }
+}
+
 .img-container2:hover .img12 {
     left: -520px;
+}
+
+@media only screen and (min-width: 700px) {
+    .img-container2:hover .img12 {
+        left: -520px;
+    }
 }
 
 .img-container2:hover .img22 {
