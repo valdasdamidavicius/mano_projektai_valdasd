@@ -5,15 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://127.0.0.1:5500/GALLERIA/galleria.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
     <title>GALLERIA</title>
 </head>
 <body>
-<div class="paieska">
-    <input type="text" placeholder="Search" />
-    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
-    </svg>
-</div>
+
+<theme-header>
+    <div class="header-section">
+        <header class="theme-header">
+            <div id="identity" class="header--containerrow">
+                <div class="large-search">
+                    <input class="header-search" type="text" placeholder="Search">
+                    <button class="search-button" type="submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/>
+                        </svg>
+                    </button>
+                </div>
+                <div id="logo" class="theme_logo">
+                    <div class="img">
+                        <img src="http://127.0.0.1:5500/GALLERIA/galleria.webp" />
+                    </div>
+                </div>
+                <div class="cart--container">
+                    <ul class="shopping">
+                    <span class="my-cart">Cart</span>
+                    </ul>
+                </div>
+            </div>
+        </header>
+
+
+
+    </div>
+
+</theme-header>
+
     <div class="layout">
         <div class="bin menu">
             <div class="container">
