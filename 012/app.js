@@ -20,6 +20,9 @@ console.log(middleResult);
 
 console.clear();
 
+
+// atspausdinti 10 random reiksmiu nuo 0 iki 25
+
 for (let i = 0; i < 10; i++) {
     console.log(rand(0, 25));
 }
