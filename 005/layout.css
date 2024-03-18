@@ -93,7 +93,7 @@ svg:hover {
 } */
 
 img {
-    width: var(--img2);
+    width: 300px;
     height: auto;
     position: absolute;
     transition: all 0.5s;
@@ -108,7 +108,7 @@ img {
 .img-container2 {
     border: 1px solid black;
     padding: 20px;
-    width: var(--img);
+    width: 300px;
     position: relative;
     margin: 0;
     height: 180px;

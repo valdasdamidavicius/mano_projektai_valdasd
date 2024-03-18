@@ -81,13 +81,6 @@ body {
     cursor: pointer;
 }
 
-.bi bi-search {
-    width: 14px;
-    height: 14px;
-    line-height: inherit;
-    pointer-events: none;
-}
-
 #logo {
     text-align: center;
     flex: 0 0 165px;
@@ -111,20 +104,18 @@ div.cart--container {
     height: 60px;
 }
 
-/* ul.shopping {
-    text-align: right;
-    display: inline-block;
-    vertical-align: middle;
-    min-width: 25px;
-} */
-
-ul {
-    padding: 0;
-    margin: 0;
-    list-style: disc inside;
+svg {
+    width: 50px;
+    height: 50px;
+    fill: crimson;
+    transition: all 0.3s;
 }
 
-.my-cart {
+svg:hover {
+    fill: darkblue;
+}
+
+.shopping {
     font-size: 15px;
     font-weight: 400;
     border: 0;
@@ -135,21 +126,14 @@ ul {
     min-width: 25px;
 }
 
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: disc inside;
+}
+
 .layout {
     width: 100%;
-}
-
-.bin {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.container {
-    width: 100%;
-    max-width: 1200px;
-    display: flex;
-    justify-content: center;
 }
 
 .bin.menu {
@@ -157,8 +141,8 @@ ul {
 }
 
 nav {
-    border-right: 3px solid white;
-    border-left: 3px solid white;
+    /* border-right: 3px solid white; */
+    /* border-left: 3px solid white; */
     height: 100px;
     padding: 0;
     display: flex;
@@ -189,26 +173,24 @@ nav ul li a:hover {
     color: darkblue;
 }
 
-svg {
-    width: 50px;
-    height: 50px;
-    fill: crimson;
-    transition: all 0.3s;
-}
-
-svg:hover {
-    fill: darkblue;
-}
-
-/* .desktop-menu {
+.desktop-menu {
     display: none;
-} */
+}
 
-/* .burger-holder {
+.mobile-menuburger-holder {
     display: flex;
     align-items: center;
     width: 40px;
     height: 100px;
+}
+
+@media only screen and (min-width: 900px) {
+    .desktop-menu {
+        display: flex;
+}
+    .mobile-menu {
+        display: none;
+    }
 }
 
 .burger {
@@ -224,22 +206,105 @@ svg:hover {
 .burger div {
     width: 100%;
     height: 5px;
-    background-color: white;
+    background-color: black;
     transition: all 0.3s;
-} */
+}
 
 img {
     width: 100%;
     height: auto;
-    /* object-fit: contain; */
-    /* border: 1px solid black; */
+    object-fit: contain;
+    border: 1px solid black;
 }
 
-.image {
+/* .image {
     width: 50%;
     display: inline-block;
-}
+} */
 
 .no-space {
     font-size: 0;
+}
+
+.bin {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+}
+
+@media only screen and (min-width: 700px) {
+    .container {
+        width: 500px;
+    }
+}
+
+.img-container {
+    border: 1px solid black;
+    padding: 20px;
+    width: 500px;
+    position: relative;
+    margin: 0;
+    height: 290px;
+    overflow: hidden;
+}
+
+@media only screen and (min-width: 700px) {
+    .img-container {
+        width: 500px;
+        height: 290;
+    }
+}
+
+.img img12 {
+    width: 540px;
+    height: 330px;
+}
+
+.img img22 {
+    width: 540px;
+    height: 330px;
+}
+
+.img-container img {
+    position: absolute;
+    display: inline-block;
+}
+
+.img-container .img12 {
+    top: 20px;
+    left: 20px;
+    transition: all 0.5s;
+}
+
+.img-container .img22 {
+    top: 20px;
+    left: 540px;
+    transition: all 0.5s;
+}
+
+@media only screen and (min-width: 700px) {
+    .img-container .img22 {
+        left: 540px;
+    }
+}
+
+.img-container:hover .img12 {
+    left: -520px;
+}
+
+@media only screen and (min-width: 700px) {
+    .img-container:hover .img12 {
+        left: -520px;
+    }
+}
+
+.img-container:hover .img22 {
+    left: 20px;
 }
