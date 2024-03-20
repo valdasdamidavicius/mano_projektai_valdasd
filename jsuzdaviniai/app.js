@@ -77,3 +77,54 @@ for (let i = 0; i < 5; i++) {
 
 console.log('Suma:', sum7);
 
+console.log('Įvedami skaičiai -a, b, c –kraštinių ilgiai, trys kintamieji (naudokite ​rand()​ funkcija nuo 1 iki 10). Parašykite skriptą, kuris nustatytų, ar galima sudaryti trikampį ir atsakymą atspausdintų naudojant console.log.'); 
+
+let A = rand(1, 10);
+let B = rand(1, 10);
+let C = rand(1, 10);
+
+console.log(A, B, C);
+
+let arGaunasi = A + B > C && A + C > B && B + C > A;
+
+console.log(arGaunasi ? 'Gaunasi' : 'Negaunasi');
+
+let arGaunasi2 = (A + B + C) / Math.max(A, B, C) > 2;
+
+console.log(arGaunasi ? 'Gaunasi' : 'Negaunasi');
+
+
+console.log('Sukurkite keturis kintamuosius ir ​rand()​ funkcija sugeneruokite jiems reikšmes nuo 0 iki 2. Suskaičiuokite kiek yra nulių, vienetų ir dvejetų. Rezultatus atspauzdinkite su console.log');
+
+let d = rand(0, 2);
+let o = rand(0, 2);
+let r = rand(0, 2);
+let f = rand(0, 2);
+
+console.log(d, o, r, f);
+
+let nuliai = 0;
+let vienetai = 0;
+let dvejetai = 0;
+if (d == 2) {
+    dvejetai++;
+}
+if (o == 2) {
+    dvejetai++;
+}
+if (r == 2) {
+    dvejetai++;
+}
+if (f == 2) {
+    dvejetai++;
+}
+
+let suma = d + o + r + f;
+
+vienetai = suma - dvejetai * 2;
+
+nuliai = 4 - vienetai - dvejetai;
+
+console.log('Nulių:', nuliai);
+console.log('Vienetų:', vienetai);
+console.log('Dvejetų:', dvejetai);
