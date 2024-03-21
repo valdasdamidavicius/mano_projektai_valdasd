@@ -1,0 +1,15 @@
+.container {
+    width: 1920px;
+    height: 1080px;
+    border-radius: 40px;
+    background-color:  #131313;
+}
+
+.mcontainer {
+    display: inline-block;
+    width: 1393px;
+    height: 1080px;
+    margin-left: 527px;
+    border-radius: 40px;
+    background-color: #242424;
+}
