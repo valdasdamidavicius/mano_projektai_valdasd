@@ -75,3 +75,136 @@ function kvadratu(x) {
 const k1 = kvadratu(4);
 
 console.log(k1);
+
+const animals = ['cat', 'dog', 'elephant', 'horse', 'rabbit'];
+
+// 1. parasyti funkcija, kuri suskaiciuoja kiek elementu yra masyve
+
+// function countElements(arr) {
+//     return arr.length;
+// }
+
+const countElements = arr => arr.length;
+
+const rez1 = countElements(animals);
+
+console.log(rez1);
+
+// 2. parasyti funkcija, kuri priima masyva ir grazina pirma elementa
+
+const firstElement = arr => arr[0];
+
+const rez2 = firstElement(animals);
+
+console.log(rez2);
+
+// 3. parasyti funkcija, kuri priima masyva ir grazina paskutini elementa
+
+const lastElement = arr => arr[arr.length - 1];
+
+const rez3 = lastElement(animals);
+
+console.log(rez3);
+
+// 4. Parašyti funkciją, kuri priima masyvą ir grąžina vidurinį elementą (elementų kiekis visada nelyginis skaičius)
+
+const middleElement = arr => arr[Math.floor(arr.length / 2)];
+
+const rez4 = middleElement(animals);
+
+console.log(rez4);
+
+// 5. Parašyti funkciją, kuri priima stringą ir grąžina stringo ilgį
+
+const str = 'racoon';
+
+const stringLength = str => str.length;
+
+const rez5 = stringLength(str);
+
+console.log(rez5);
+
+//6. Parašyti funkciją, kuri priima masyvą ir paskaičiuoja kiek raidžių yra visuose masyvo elementuose. Naudojant 5 užduoties funkciją.
+
+const countLetters = arr => {
+    let count = 0;
+    for (let i = 0; i < arr.length; i++) {
+        count += stringLength(arr[i]);
+    }
+    return count;
+}
+
+const rez6 = countLetters(animals);
+
+console.log(rez6);
+
+// for
+
+for (let i = 0; i <animals.length; i++) {
+    console.log(animals[i]);
+}
+
+// for of
+
+for (const animal of animals) {
+    console.log(animal);
+}
+
+// for in
+
+for (const index in animals) {
+    console.log(animals[index]);
+}
+
+const houses = {
+    house1: 'red',
+    bigHouse: 'blue',
+    house2: 'green'
+};
+
+for (const house in houses) {
+    console.log(house, houses[house]);
+}
+
+
+
+const suma = (c, d) => c + d;
+const diff = (c, d) => c - d;
+const mult = (c, d) => c * d;
+const div = (c, d) => c / d;
+
+const niceCalck = (action, c, d) => {
+    const r = action(c, d);
+    console.log('%c' + r, 'color: skyblue; font-size: 20px, background-color: gray; padding: 10px; border-radius: 10px;');
+}
+
+niceCalck(mult, 5, 3);
+
+const print = text => console.log(text);
+
+animals.forEach(print);
+
+animals.forEach((text, i) =>console.log(i, text));
+animals.forEach(text => console.log(text));
+
+// 7. atspausdinti pirmas gyvunu raides naudojant forEach metoda
+
+animals.forEach(animal => console.log(animal[0]));
+
+// 8. suskaiciuoti raidziu kieki visuose gyvunuose naudojant forEach metoda
+
+let count = 0;
+
+animals.forEach(animal => count = count + animal.length);
+
+console.log(count);
+
+// 9. Atspausdinti gyvūnus kurių ilgis yra daugiau nei 4 naudojant forEach metodą
+
+animals.forEach(animal => {
+    if (animal.length > 4) {
+        console.log(animal);
+    }
+});
+
+animals.forEach(animal => animal.length > 4 && console.log(animal));
