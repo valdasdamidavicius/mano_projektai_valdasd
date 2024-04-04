@@ -208,3 +208,8 @@ animals.forEach(animal => {
 });
 
 animals.forEach(animal => animal.length > 4 && console.log(animal));
+
+
+
+
+
