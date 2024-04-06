@@ -67,18 +67,17 @@ console.log("Didžiausias neigiamas skaičius:", didziausiasNeigiamasSkaicius(A)
 
 // 4. Surasti didžiausią skaičių, kuris yra mažesnis už 50;
 
-function didziausiasMazesnisUz50(A) {
-    let didziausias = null;
 
-    A.forEach(function(elementas) {
-        if (elementas < 50 && (didziausias === null || elementas > didziausias)) {
-            didziausias = elementas;
-        }
-    });
+let didziausias = null;
+
+A.forEach(elementas => {
+    if (elementas < 50 && (didziausias === null || elementas > didziausias)) {
+        didziausias = elementas;
+    }
     return didziausias;
-}
-
-console.log("Didžiausias skaičius, mažesnis už 50:", didziausiasMazesnisUz50(A));
+});
+    
+console.log("Didžiausias skaičius, mažesnis už 50:", didziausias);
 
 // 5. Suskaičiuoti teigiamų skaičių sumą;
 
@@ -96,19 +95,17 @@ console.log("Teigiamų skaičių suma:", sumaTeigiamuSkaiciu(A));
 
 // 6. Suskaičiuoti neigiamų skaičių kvadratų (skaičių pakeltų kvadratu) sumą;
 
-function sumaNeigiamuKvadratu(A) {
-    let suma = 0;
 
-    A.forEach(function(elementas) {
-        if (elementas < 0) {
-            suma += elementas * elementas;
-        }
-    });
+let suma = 0;
 
+A.forEach(elementas => {
+    if (elementas < 0) {
+        suma += elementas * elementas;
+    }
     return suma;
-}
+});
 
-console.log("Neigiamų skaičių kvadratų suma:", sumaNeigiamuKvadratu(A));
+console.log("Neigiamų skaičių kvadratų suma:", suma);
 
 // 7. Suskaičiuoti kiek skaičių patenka į intervalą (imtinai) 25-75
 
@@ -222,42 +219,210 @@ console.log(B);
 
 // 1. Surasti ilgiausią stringą;
 
-function ilgiausiasStringas(B) {
-    let ilgiausias = '';
+let ilgiausias = '';
 
-    B.forEach(function(elementas) {
-        if (typeof elementas === 'string' && elementas.length > ilgiausias.length) {
-            ilgiausias = elementas;
-        }
-    });
-
+B.forEach(elementas => {
+    if (typeof elementas === 'string' && elementas.length > ilgiausias.length) {
+        ilgiausias = elementas;
+    }
     return ilgiausias;
-}
+});
 
-console.log("Ilgiausias string'as:", ilgiausiasStringas(B));
+console.log("Ilgiausias string'as:", ilgiausias);
 
 // 2. Surasti trumpiausią stringą;
 
+let trumpiausias = null;
+
+B.forEach(elementas => {
+    if (typeof elementas === 'string') {
+        if (trumpiausias === null || elementas.length < trumpiausias.length) {
+            trumpiausias = elementas;
+        }
+    }
+    return trumpiausias;
+});
+
+console.log("Trumpiausias string'as:", trumpiausias);
 
 // 3. Surasti stringą, kuris prasideda “a” raide;
 
+let rezultatas = null;
+
+B.forEach(elementas => {
+    if (typeof elementas === 'string' && elementas.startsWith('a')) {
+        rezultatas = elementas;
+        return false;
+    }
+    return rezultatas;
+});
+
+console.log("Pirmas string'as prasidedantis 'a':", rezultatas);
 
 // 4. Surasti stringą su daugiausia žodžių;
 
+let daugiausiaiZodziu = null;
+
+B.forEach(elementas => {
+    if (typeof elementas === 'string') {
+        const zodziuSkaicius = elementas.split(' ').length;
+        if (daugiausiaiZodziu === null || zodziuSkaicius > daugiausiaiZodziu.split(' ').length) {
+            daugiausiaiZodziu = elementas;
+        }
+    }
+    return daugiausiaiZodziu;
+});
+
+console.log("String'as su daugiausiai žodžių:", daugiausiaiZodziu);
 
 // 5. Surasti stringą su mažiausiai žodžių;
 
+let maziausiaiZodziu = null;
+
+B.forEach(elementas => {
+    if (typeof elementas === 'string') {
+        const zodziuSkaicius = elementas.split(' ').length;
+        if (maziausiaiZodziu === null || zodziuSkaicius < maziausiaiZodziu.split(' ').length) {
+            maziausiaiZodziu = elementas;
+        }
+    }
+    return maziausiaiZodziu;
+});
+
+console.log("String'as su mažiausiai žodžių:", maziausiaiZodziu);
 
 // 6. Suskaičiuoti kiek stringų turi daugiau nei 4 žodžius;
 
+let skaicius = 0;
+
+B.forEach(elementas => {
+    if (typeof elementas === 'string') {
+        const zodziuSkaicius = elementas.split(' ').length;
+        if (zodziuSkaicius > 4) {
+            skaicius++;
+        }
+    }
+    return skaicius;
+});
+
+console.log("String'ų su daugiau nei 4 žodžius kiekis:", skaicius);
 
 // 7. Suskaičiuoti kiek masyve yra žodžių;
 
+let zodziuKiekis = 0;
+
+B.forEach(elementas => {
+    if (typeof elementas === 'string') {
+        const zodziai = elementas.split(' ');
+        zodziuKiekis += zodziai.length;
+    }
+    return zodziuKiekis;
+});
+
+console.log("Visų žodžių kiekis masyve:", zodziuKiekis);
 
 // 8. Suskaičiuoti visas ‘s’ raides;
 
+let sSkaicius = 0;
+
+B.forEach(elementas => {
+    if (typeof elementas === 'string') {
+        const simboliai = elementas.split('');
+        simboliai.forEach(function(simbolis) {
+            if (simbolis === 's' || simbolis === 'S') {
+                sSkaicius++;
+            }
+        });
+    }
+    return sSkaicius;
+});
+
+console.log("Visų 's' rašto simbolių kiekis masyve:", sSkaicius);
 
 // 9. Suskaičiuoti kiek masyve yra raidžių (tarpų tarp žodžių neskaičiuoti!);
 
+let raidziuSkaicius = 0;
+
+B.forEach(elementas => {
+    if (typeof elementas === 'string') {
+        raidziuSkaicius += elementas.replace(/\s/g, '').length;
+    }
+    return raidziuSkaicius;
+});
+
+console.log("Raidžių be tarpų kiekis masyve:", raidziuSkaicius);
 
 // 10. Surasti ilgiausią žodį (ne stringą, o atskirą stringo žodį!);
+
+let ilgiausias2 = '';
+
+B.forEach(elementas => {
+    if (typeof elementas === 'string') {
+        const zodziai = elementas.split(' ');
+        zodziai.forEach(zodis => {
+            if (zodis.length > ilgiausias2.length) {
+                ilgiausias2 = zodis;
+            }
+        });
+    }
+    return ilgiausias2;
+});
+
+console.log("Ilgiausias žodis masyve:", ilgiausias2);
+
+
+const C = [94, true, 'technology', 'year', 34, true, 'flower', 13, 'future', undefined, 0, 12, 'water', 'false', 'school', 'cat', false, 'family', 70, undefined, 'life', 'government', 'mountain', 13, true, 'year', 'sun', 50, 'day', 'food', 0, 'health', 70, 31, 16, 85, 'car', 'internet', 100, 'money', 26, 'fire', 76, [], 45, 'time', 'music', 93, 0, 'love', 69, {}, 96, 0, false, 'air', 'star', 24, 9, 'thing', 19, 'house', 'way', 'true', 90, '0', 'woman', 'time', 'job', '72', '22', 'city', 'history', 47, 'man', 92, 'child', 73, '0', 16, 63, 48, 'country', 45, 'tree', true, 57, 'earth', 96, [], 'hope', 'dream', 39, 43, 'art', 27, 'friend', 'moon', '26', 'science', 74];
+
+console.log(C);
+
+// 1. Surasti didžiausią skaičių;
+
+let greatestNumber2 = null;
+ 
+C.forEach(element => {
+  if (element > greatestNumber2) {
+    greatestNumber2 = element;
+  }
+  return element;
+});
+
+console.log("Didžiausias skaičius:", greatestNumber2);
+
+// 2. Surasti trumpiausią stringą;
+
+let trumpiausias2 = null;
+
+C.forEach(elementas => {
+    if (typeof elementas === 'string') {
+        if (trumpiausias2 === null || elementas.length < trumpiausias2.length) {
+            trumpiausias2 = elementas;
+        }
+    }
+    return trumpiausias2;
+});
+
+console.log("Trumpiausias string'as:", trumpiausias2);
+
+// 3. Suskaičiuoti kiek skaičių yra 0-iai (ne stringai ‘0’, o skaičiai!);
+
+
+// 4. Suskaičiuoti teigiamų skaičių sumą (tik skaičių, ne stringų!);
+
+
+// 5. Suskaičiuoti bendrą visų stringų ilgį;
+
+
+// 6. Suskaičiuoti vidutinį stringo ilgį;
+
+
+// 7. Suskaičiuoti kiek elementų masyve yra nei stringas nei skaičius;
+
+
+// 8. Suskaičiuoti skaičių, kuriuos galima padaryti iš stringų sumą (jeigu stringas verčiasi ne į NaN);
+
+
+// 9. Rasti ko yra daugiau- stringų ar skaičių;
+
+
+// 10. Rasti ko yra daugiau- loginių true ar false;
+
