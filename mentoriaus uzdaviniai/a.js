@@ -24,7 +24,12 @@ let pavardė = 'Damidavičius';
 let gimData = 1984;
 let sieMetai = 2024;
 
+function skaiciuotiAmziu(gimData) {
+    let sieMetai = new Date().getFullYear();
+    return sieMetai - gimData;
+}
 
+console.log("Amžius:", skaiciuotiAmziu(gimData));
 
 console.log('Aš esu Valdas Damidavičius. Man yra 40 metų');
 
@@ -41,6 +46,11 @@ console.log(ats);
 
 let C = 'Once upon a time in hollywood';
 
+function pakeistiOsuZvaigzdutemis(C) {
+    return C.replace(/o/gi, '*');
+}
+
+console.log("Tekstas su pakeistomis 'o' raidėmis:", pakeistiOsuZvaigzdutemis(C));
 
 
 // 5. Sukurkite keturis kintamuosius kuriems sugeneruokite atsitiktines reikšmes nuo 0 iki 2. Suskaičiuokite kiek yra nulių, vienetų ir dvejetų.
@@ -108,10 +118,30 @@ let middleResult = middle(a, b, c);
 
 console.log(middleResult);
 
+
 // 8. Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus vardą ir pavardę kaip stringus. Sukurti trečią kintamąjį ir jam priskirti stringą, sudarytą iš pirmų vardo ir pavardės kintamųjų raidžių. Jį atspausdinti.
+
+let name2 = 'Giedrius';
+let surname2 = 'Savickas';
+let ats2 = 'GS';
+
+console.log(ats2);
 
 // 9. Parašyti kodą, kuris generuotų atsitiktinį stringą iš lotyniškų mažųjų raidžių. Stringo ilgis 3 simboliai.
 
+function generuotiAtsitiktiniStringa() {
+    let atsitiktinisStringas = '';
+    const raides = 'abcdefghijklmnopqrstuvwxyz';
+
+    for (let i = 0; i < 3; i++) {
+        const indeksas = Math.floor(Math.random() * raides.length);
+        atsitiktinisStringas += raides.charAt(indeksas);
+    }
+
+    return atsitiktinisStringas;
+}
+
+console.log("Atsitiktinis stringas:", generuotiAtsitiktiniStringa());
 
 
 
