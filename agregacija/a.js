@@ -411,9 +411,31 @@ console.log("Trumpiausias string'as:", trumpiausias2);
 
 // 5. Suskaičiuoti bendrą visų stringų ilgį;
 
+let bendrasIlgis = 0;
+
+C.forEach(elementas => {
+    if (typeof elementas === 'string') {
+        bendrasIlgis += elementas.length;
+    }
+    return bendrasIlgis;
+});
+
+console.log("Bendras visų string'ų ilgis masyve:", bendrasIlgis);
 
 // 6. Suskaičiuoti vidutinį stringo ilgį;
 
+let bendrasIlgis2 = 0;
+let kiekis = 0;
+
+C.forEach(elementas => {
+    if (typeof elementas === 'string') {
+        bendrasIlgis2 += elementas.length;
+        kiekis++;
+    }
+    return kiekis > 0 ? bendrasIlgis2 / kiekis : 0;
+});
+
+console.log("Vidutinis stringo ilgis masyve:", bendrasIlgis2 / kiekis);
 
 // 7. Suskaičiuoti kiek elementų masyve yra nei stringas nei skaičius;
 
