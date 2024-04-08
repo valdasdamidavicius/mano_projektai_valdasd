@@ -247,17 +247,17 @@ console.log("Trumpiausias string'as:", trumpiausias);
 
 // 3. Surasti stringą, kuris prasideda “a” raide;
 
-let rezultatas = null;
+let rastasStringas = null;
 
 B.forEach(elementas => {
     if (typeof elementas === 'string' && elementas.startsWith('a')) {
-        rezultatas = elementas;
-        return false;
+        rastasStringas = elementas;
     }
-    return rezultatas;
+    return rastasStringas;
 });
 
-console.log("Pirmas string'as prasidedantis 'a':", rezultatas);
+console.log("Pirmas string'as prasidedantis 'a':", rastasStringas);
+
 
 // 4. Surasti stringą su daugiausia žodžių;
 
