@@ -6,7 +6,7 @@ class Kibiras1 {
     }
   
     prideti1Akmeni() {
-      this.akmenuKiekis++;
+      this.akmenuKiekis ++;
     }
   
     pridetiDaugAkmenu(kiekis) {
@@ -25,6 +25,7 @@ class Kibiras1 {
   kibiras.prideti1Akmeni();
   kibiras.prideti1Akmeni();
   kibiras.pridetiDaugAkmenu(10);
+
   
   // Išvedami rezultatai
   kibiras.kiekPririnktaAkmenu(); // Rezultatas: Akmenų kiekis kibire: 7
