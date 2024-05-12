@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <script src="http://127.0.0.1:5500/bankas2/b.js" defer></script>
     <title>Document</title>
 </head>
+
 <body>
     <header>
         <div class="topLine">
@@ -32,12 +34,27 @@
         </div>
     </header>
     <main>
+
         <div class="products-container">
             <div class="products">
                 <div class="buttons">
                     <div class="seed">Klientų sąrašas</div>
                 </div>
-                <div class="list --list"></div>
+                <div class="list --list">
+                    <div class="product">
+                        <div>
+                            <div class="id">ID:</div>
+                            <div class="client">Vardas</div>
+                            <div class="clientSurname">Pavardė</div>
+                            <div class="money">0 Eur</div>
+                        </div>
+                        <div>
+                            <button type="button" class="violet --plus">Pridėti lėšų</button>
+                            <button type="button" class="yellow --minus">Nuskaičiuoti lėšas</button>
+                            <button type="button" class="red --delete">Ištrinti</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="modal modal--create --modal">
@@ -64,7 +81,7 @@
         <div class="modal modal--delete --modal">
             <div class="card">
                 <h2>Ištrinti</h2>
-                <h2>Ar jūs tikrai norite ištrinti <span class="client--clientSurname"></span>?</h2>
+                <h2>Ar jūs tikrai norite ištrinti <span class="clientName--clientSurname"></span>?</h2>
                 <div class="buttons">
                     <button type="button" class="green --submit">Trinti</button>
                     <button type="button" class="gray --close">Atšaukti</button>
@@ -114,6 +131,7 @@
             </div>
         </div>
     </main>
-    
+
 </body>
+
 </html>
