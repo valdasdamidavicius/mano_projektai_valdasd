@@ -21,6 +21,7 @@ window.addEventListener('load', _ => {
     const LAST_ID_LS = 'clientsLastSavedId';
     const CLIENTS_LS = 'clientsList'
     let destroyId = 0;
+    let updateId = 0;
 
     const listHtml = document.querySelector('.--list');
     const closeButtons = document.querySelectorAll('.--close');
@@ -30,6 +31,8 @@ window.addEventListener('load', _ => {
     const storeButton = createModal.querySelector('.--submit');
     const deleteModal = document.querySelector('.modal--delete');
     const destroyButton = deleteModal.querySelector('.--submit');
+    const editModal = document.querySelector('.modal--edit2');
+    const updateButton = editModal.querySelector('.--submit');
 
     const getId = _ => {
         const id = localStorage.getItem(LAST_ID_LS);
@@ -71,12 +74,29 @@ window.addEventListener('load', _ => {
         showList();  //DOM
     }
 
+    const update = _ => {
+        const data = getDataFromForm(editModal);
+        updateData(updateId, data);
+        hideModal(editModal);
+        showList();
+    }
+
     const registerDelete = _ => {
         document.querySelectorAll('.--delete').forEach(b => {
             b.addEventListener('click', _ => {
                 showModal(deleteModal);
                 prepareDeleteModal(parseInt(b.value));
                 destroyId = parseInt(b.value);
+            });
+        });
+    }
+
+    const registerEdit = _ => {
+        document.querySelectorAll('.--edit2').forEach(b => {
+            b.addEventListener('click', _ => {
+                showModal(editModal);
+                prepareEditModal(parseInt(b.value));
+                updateId = parseInt(b.value);
             });
         });
     }
@@ -106,6 +126,11 @@ window.addEventListener('load', _ => {
         write(storeData);
     }
 
+    const updateData = (id, data) => {
+        const updateData = read().map(c => c.id == id ? {...data, id} : c);
+        write(updateData);
+    }
+
     const showList = _ => {
         let clientsHtml = '';
         read().forEach(c => {
@@ -118,13 +143,26 @@ window.addEventListener('load', _ => {
         });
         listHtml.innerHTML = clientsHtml;
         registerDelete();
-        // registerEdit();
+        registerEdit();
     }
 
     const prepareDeleteModal = id => {
         const title = read().find(c => c.id == id).clientSurname;
         deleteModal.querySelector('.clientName--clientSurname').innerText = title;
     }
+
+    const prepareEditModal = id => {
+        const product = read().find(c => c.id == id);
+        editModal.querySelectorAll('[name]').forEach(i => {
+            i.value = product[i.getAttribute('name')];
+        });
+    }
+
+    const devButton = document.querySelector('.seed');
+    devButton.addEventListener('click', _ => {
+        seed();
+        showList();
+    });
 
     closeButtons.forEach(b => {
         b.addEventListener('click', _ => {
@@ -138,11 +176,29 @@ window.addEventListener('load', _ => {
 
     destroyButton.addEventListener('click', _ => destroy());
 
+    updateButton.addEventListener('click', _ => update());
+
+
     setTimeout(_ => showList(), 2000);
 
+    const seedData = [
+        {id: 1, clientName: 'Klevas', clientSurname: 'Auksaspalvis', clientMoney: '1425 '},
+        {id: 2, clientName: 'Raudė', clientSurname: 'Ežeraitė', clientMoney: '703 '},
+        {id: 3, clientName: 'Ruduo', clientSurname: 'Gelsvalapis', clientMoney: '15 '},
+        {id: 4, clientName: 'Zylė', clientSurname: 'Gražiasparnė', clientMoney: '489 '},
+        {id: 5, clientName: 'Braškė', clientSurname: 'Obelaitė', clientMoney: '2541 '},
+        {id: 6, clientName: 'Bazilikas', clientSurname: 'Ožekšnis', clientMoney: '57 '},
+        {id: 7, clientName: 'Smidras', clientSurname: 'Paprikėnas', clientMoney: '984 '},
+        {id: 8, clientName: 'Magnolija', clientSurname: 'Skardžiabalsienė', clientMoney: '8652 '},
+        {id: 9, clientName: 'Kriaušė', clientSurname: 'Voveraitė', clientMoney: '698 '},
+        {id: 10, clientName: 'Vilkas', clientSurname: 'Žuvėdrinis', clientMoney: '352 '},
+    ];
 
-
-
+    
+    const seed = _ => {
+        write(seedData);
+        localStorage.setItem(LAST_ID_LS, 10);
+    }
 
 
 
