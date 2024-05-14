@@ -62,16 +62,16 @@ window.addEventListener('load', _ => {
     }
 
     const store = _ => {
-        const data = getDataFromForm(createModal);  // CRUD
-        storeData(data);  // LS
-        hideModal(createModal);  // DOM
-        showList();  // DOM
+        const data = getDataFromForm(createModal);
+        storeData(data);
+        hideModal(createModal);
+        showList();
     }
 
     const destroy = _ => {
-        destroyData(destroyId);  // LS
-        hideModal(deleteModal);  // DOM
-        showList();  //DOM
+        destroyData(destroyId);
+        hideModal(deleteModal);
+        showList();
     }
 
     const update = _ => {
