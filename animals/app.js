@@ -74,6 +74,30 @@ app.post('/store', (req, res) => {
     res.redirect(302, 'http://animals');
 });
 
+app.get('/edit/:id', (req, res) => {
+
+    let data = fs.readFileSync('./data/animals.json', 'utf-8');
+    data = JSON.parse(data);
+    const animal = data.find(a => a.id === req.params.id);
+    let html = fs.readFileSync('./data/edit.html', 'utf-8');
+    // const nav = fs.readFileSync('./data/nav.html', 'utf-8');
+    html = html.replace('{{NAME}}', animal.name).replace('{{SPECIES}}', animal.species).replace('{{AGE}}', animal.age);
+    res.send(html);
+});
+
+app.post('/update/:id', (req, res) => {
+
+    const name = req.body.name;
+    const species = req.species;
+    const age = req.age;
+    let data = fs.readFileSync('./data/animals.json', 'utf-8');
+    data = JSON.parse(data);
+    data = data.map(a => a.id === req.params.id ? {...a, name, species, age} : a);
+    data = JSON.stringify(data);
+    fs.writeFileSync('./data/animals.json', data);
+    res.redirect(302, 'http://animals');
+});
+
 
 app.listen(port, _ => {
     console.log(`Animals app listening on port ${port}`);
