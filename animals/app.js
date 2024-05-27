@@ -54,6 +54,26 @@ app.get('/', (req, res) => {
 
 });
 
+app.get('/create', (req, res) => {
+    let html = fs.readFileSync('./data/create.html', 'utf-8');
+    // const nav = fs.readFileSync('./data/nav.html', 'utf-8');
+    // html = html.replace('{{NAV}}', nav);
+    res.send(html);
+});
+
+app.post('/store', (req, res) => {
+    const name = req.body.name;
+    const species = req.body.species;
+    const age = req.body.age;
+    // const id = uuidv4();
+    let data = fs.readFileSync('./data/colors.json', 'utf-8');
+    data = JSON.parse(data);
+    data.push({ name, species, age });
+    data = JSON.stringify(data);
+    fs.writeFileSync('./data/animals.json', data);
+    res.redirect(302, 'http://animals');
+});
+
 
 app.listen(port, _ => {
     console.log(`Animals app listening on port ${port}`);
