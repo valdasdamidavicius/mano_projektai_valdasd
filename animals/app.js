@@ -62,11 +62,11 @@ app.get('/create', (req, res) => {
 });
 
 app.post('/store', (req, res) => {
-    const name = req.body.name;
-    const species = req.body.species;
-    const age = req.body.age;
+    const name = req.name;
+    const species = req.species;
+    const age = req.age;
     // const id = uuidv4();
-    let data = fs.readFileSync('./data/colors.json', 'utf-8');
+    let data = fs.readFileSync('./data/animals.json', 'utf-8');
     data = JSON.parse(data);
     data.push({ name, species, age });
     data = JSON.stringify(data);
