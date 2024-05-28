@@ -1,6 +1,9 @@
 <li class="list-group-item">
     <div class="animal-in-list">
         <div class="animal-in-list__animal">
+            <div class="animal-in-list__animal__id">
+                {{ID}}
+            </div>
             <div class="animal-in-list__animal__name">
                 {{NAME}}
             </div>
@@ -11,9 +14,9 @@
                 {{AGE}}
             </div>
         </div>
-        <div class="color-in-list__buttons">
+        <div class="animals-in-list__buttons">
             <a href="http://animals/edit/{{ID}}" class="btn btn-outline-success">Edit</a>
-            <!-- <a href="http://animals/delete/{{ID}}" class="btn btn-outline-danger">Delete</a> -->
+            <a href="http://animals/delete/{{ID}}" class="btn btn-outline-danger">Delete</a>
         </div>
     </div>
 </li>

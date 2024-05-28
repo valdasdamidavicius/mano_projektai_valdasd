@@ -20,19 +20,23 @@
                         <h1>Edit animal</h1>
                     </div>
                     <div class="card-body">
-                        <form action="http://colors.test/update/{{ID}}" method="post">
+                        <form action="http://animals/update/{{ID}}" method="post">
                             <div class="m-3">
                                 <div class="input">
+                                    <div>Animal id</div>
+                                    <input type="text" name="id">
+                                </div>
+                                <div class="input">
                                     <div>Animal name</div>
-                                    <input type="text" name="animalName">
+                                    <input type="text" name="name">
                                 </div>
                                 <div class="input">
                                     <div>Animal species</div>
-                                    <input type="text" name="animalSpecies">
+                                    <input type="text" name="secies">
                                 </div>
                                 <div class="input">
                                     <div>Animal age</div>
-                                    <input type="text" name="animalAge">
+                                    <input type="text" name="age">
                                 </div>
                             </div>
                             <div class="m-3 mt-5">
