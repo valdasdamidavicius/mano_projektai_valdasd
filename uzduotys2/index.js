@@ -2,13 +2,25 @@ console.log('Sveiki sveiki');
 
 // 1. Sukurkite funkciją kuri priimtų du kintamuosius, juos sudaugintų ir atspausdintų sandaugą į konsolę.
 
+function multiply(a, b) {
+    console.log(a * b);
+}
+multiply(2, 3);
 
 // 2. Sukurkite funkciją kuri priimtų vieną kintamąjį, vardą. Ir konsolėje išspausdintų “labas “
 // ir tą paduotą vardą.
 
+function greet(name) {
+    console.log('Labas, ' + name);
+}
+greet('Valdai');
 
 // 3. Sukurkite funkciją  kuri priimtų vieną kintamąjį, tekstą. Ir konsolėje išspausdintų kiek simbolių yra tame tekste.
 
+function countCharacters(text) {
+    console.log('Simbolių skaičius: ' + text.length);
+}
+countCharacters('Paskutinis dvyliktokų skambutis');
 
 // 4. Sukurkite funkciją kuri priimtų 2 kintamuosius tekstus, vardą, pavardę ir atspausdintų inicialus.
 // T.y vardo ir pavardės pirmąsias raides DIDŽIOSIOMIS raidėmis.
