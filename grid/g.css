@@ -1,0 +1,28 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+}
+
+
+.box {
+    height: 300px;
+    font-size: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.items1 {
+    background-color: tomato;
+}
+
+.items2 {
+    background-color: crimson;
+}
+
+.items3 {
+    background-color: skyblue;
+}
+
