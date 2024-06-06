@@ -25,9 +25,31 @@ countCharacters('Paskutinis dvyliktokų skambutis');
 // 4. Sukurkite funkciją kuri priimtų 2 kintamuosius tekstus, vardą, pavardę ir atspausdintų inicialus.
 // T.y vardo ir pavardės pirmąsias raides DIDŽIOSIOMIS raidėmis.
 
+function getInitials(firstName, lastName) {
+    if (!firstName || !lastName) {
+        console.log("Neteisingi duomenys");
+        return;
+    }
+    const firstInitial = firstName.charAt(0).toUpperCase();
+    const lastInitial = lastName.charAt(0).toUpperCase();
+    
+    console.log(firstInitial + lastInitial);
+}
+getInitials('Valdas', 'Damidavičius');
 
 // 5. Sukurkite HTML div’ą su id “numberPlace”. Parašykite funkciją kuri priimtų kintamąjį, skaičių ir jį atspausdintų tame HTML elemente.
 
+function printNumber(number) {
+
+    const numberPlace = document.getElementById("numberPlace");
+    
+    if (numberPlace) {
+        numberPlace.textContent = number;
+    } else {
+        console.error("Elementas su id 'numberPlace' nerastas.");
+    }
+}
+printNumber(123);
 
 // 6. Sukurkite Funkciją kuri priima masyva, prasuka ciklą ir atspausdina (consolėje) 
 // kiekvieną elementą vienoje eilutėje, atskirtus kableliais, po paskutinio elemento kabliataškis.
@@ -39,6 +61,37 @@ countCharacters('Paskutinis dvyliktokų skambutis');
 // 8. Sukurkite Funkciją kuri sugeneruotų random sveikųjų skaičių masyvą ir jį gražintų.
 // Funkcija priima tris int tipo kintamuosius, min, max ir length reikšmėms nustatyti.
 
+function generateRandomArray(min, max, length) {
+    // Patikrina, ar parametrai teisingi
+    if (min >= max) {
+        console.error("Min reikšmė turi būti mažesnė už max reikšmę.");
+        return [];
+    }
+
+    if (length <= 0) {
+        console.error("Length reikšmė turi būti didesnė už 0.");
+        return [];
+    }
+
+    // Sukuria tuščią masyvą
+    const randomArray = [];
+
+    // Generuoja atsitiktinius skaičius ir prideda juos į masyvą
+    for (let i = 0; i < length; i++) {
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        randomArray.push(randomNumber);
+    }
+
+    // Gražina sugeneruotą masyvą
+    return randomArray;
+}
+
+// Pavyzdys kaip naudoti funkciją
+const min = 1;
+const max = 100;
+const length = 10;
+const randomArray = generateRandomArray(min, max, length);
+console.log(randomArray);
 
 // 9. Sukurkite Funkciją kuri panaudotų 8toje užduotyje sugeneruotą masyvą (priimtų kaip kintamąjį), susumuotų ir gražintų reikšmę.
 
