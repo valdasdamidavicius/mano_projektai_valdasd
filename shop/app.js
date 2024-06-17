@@ -2,17 +2,24 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 3000;
+const port = 3000;
 
+// Middleware
 app.use(bodyParser.json());
 
-// In-memory data store
+// In-memory store for shop items
 let shopItems = [];
 let nextId = 1;
+
+// CRUD operations
 
 // Create a new shop item
 app.post('/shopItems', (req, res) => {
     const { name, price } = req.body;
+    if (!name || !price) {
+        return res.status(400).send('Name and price are required.');
+    }
+
     const newItem = { id: nextId++, name, price };
     shopItems.push(newItem);
     res.status(201).json(newItem);
@@ -25,41 +32,48 @@ app.get('/shopItems', (req, res) => {
 
 // Read a single shop item by id
 app.get('/shopItems/:id', (req, res) => {
-    const { id } = req.params;
-    const item = shopItems.find(item => item.id == id);
-    if (item) {
-        res.json(item);
-    } else {
-        res.status(404).send('Item not found');
+    const id = parseInt(req.params.id, 10);
+    const item = shopItems.find(i => i.id == id);
+
+    if (!item) {
+        return res.status(404).send('Item not found.');
     }
+
+    res.json(item);
 });
 
 // Update a shop item by id
 app.put('/shopItems/:id', (req, res) => {
-    const { id } = req.params;
+    const id = parseInt(req.params.id, 10);
     const { name, price } = req.body;
-    const item = shopItems.find(item => item.id == id);
-    if (item) {
-        item.name = name;
-        item.price = price;
-        res.json(item);
-    } else {
-        res.status(404).send('Item not found');
+    const itemIndex = shopItems.findIndex(i => i.id == id);
+
+    if (itemIndex === -1) {
+        return res.status(404).send('Item not found.');
     }
+
+    if (!name || !price) {
+        return res.status(400).send('Name and price are required.');
+    }
+
+    shopItems[itemIndex] = { id, name, price };
+    res.json(shopItems[itemIndex]);
 });
 
 // Delete a shop item by id
 app.delete('/shopItems/:id', (req, res) => {
-    const { id } = req.params;
-    const itemIndex = shopItems.findIndex(item => item.id == id);
-    if (itemIndex !== -1) {
-        const [deletedItem] = shopItems.splice(itemIndex, 1);
-        res.json(deletedItem);
-    } else {
-        res.status(404).send('Item not found');
+    const id = parseInt(req.params.id, 10);
+    const itemIndex = shopItems.findIndex(i => i.id == id);
+
+    if (itemIndex === -1) {
+        return res.status(404).send('Item not found.');
     }
+
+    const deletedItem = shopItems.splice(itemIndex, 1);
+    res.json(deletedItem[0]);
 });
 
-app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+// Start the server
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
 });
